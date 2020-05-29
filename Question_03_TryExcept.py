@@ -1,6 +1,6 @@
 # Author: Jamal Huraibi, fh1328
 # Assignment 1
-# Question 3 (Alternate Solution for Validation)
+# Question 3 (Alternate Solution for Validation using TryExcept)
 
 
 class SaleHelper:
@@ -15,7 +15,7 @@ class SaleHelper:
     @staticmethod
     def check_valid(value_entered):
         try:
-            float(value_entered)
+            float(value_entered)                                                # If float cast fails then not a number
             return True
         except ValueError:
             return False
