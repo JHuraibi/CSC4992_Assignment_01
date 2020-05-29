@@ -1,6 +1,6 @@
 # Author: Jamal Huraibi, fh1328
-# Assignment []
-# Question []
+# Assignment 1
+# Question 1
 
 if __name__ == '__main__':
     
