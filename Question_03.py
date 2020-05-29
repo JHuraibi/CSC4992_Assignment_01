@@ -83,8 +83,8 @@ class SaleHelper:
         print("Your tax amount is: $", self.tax_amount)                        # Print tax amount
         print("Your tip amount is: $", self.tip_amount)                        # Print tip amount
         print("****************************************")
-                                                                                # Total bill amount
-        print("Your Total Bill, including sales tax and tip is ${:f}".format(self.bill_total))
+                                                                                # Total bill amount, to 2 decimal places
+        print("Your Total Bill, including sales tax and tip is ${:.2f}".format(self.bill_total))
     
     
 if __name__ == '__main__':
