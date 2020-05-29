@@ -17,10 +17,7 @@ class SaleHelper:
         import re
         tokens = re.split("[.]", value_entered)
         
-        if float(value_entered) < 0.0:
-            return False
-        elif len(tokens) > 2:
-            print("ERROR splitting tokens")
+        if len(tokens) > 2:
             return False
         
         for token in tokens:
