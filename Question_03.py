@@ -76,9 +76,9 @@ class SaleHelper:
 
     def print_bill(self):
         print("Dear User,")
-        print("Your bill amount is: $", self.bill_subtotal)                    # Print bill subtotal
-        print("Your tax amount is: $", self.tax_amount)                        # Print tax amount
-        print("Your tip amount is: $", self.tip_amount)                        # Print tip amount
+        print("Your bill amount is: $", self.bill_subtotal)                     # Print bill subtotal
+        print("Your tax amount is: $", self.tax_amount)                         # Print tax amount
+        print("Your tip amount is: $", self.tip_amount)                         # Print tip amount
         print("****************************************")
                                                                                 # Total bill amount, to 2 decimal places
         print("Your Total Bill, including sales tax and tip is ${:.2f}".format(self.bill_total))
