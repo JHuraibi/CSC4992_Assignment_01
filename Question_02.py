@@ -14,14 +14,14 @@ class QuadraticHelper:
         self.imaginary_flag = None
 
     def check_valid(self, value_entered):
-        # [This is After Submitted]: Like Assignment 02, why does strip() not work?
-        value_entered = value_entered.replace('.', '')  # isDigit() cannot handle (.)
-        value_entered = value_entered.replace('-', '')  # isDigit() cannot handle (-) sign
+        # [This comment after Submitted]: Like Assignment 02, why does strip() not work?
+        value_entered = value_entered.replace('.', '')                          # isDigit() cannot handle decimal (.)
+        value_entered = value_entered.replace('-', '')                          # isDigit() cannot handle neg sign (-)
     
         if self.most_recent_variable == 'a':
-            return value_entered.isdigit() & (float(value_entered) != 0.0)  # Extra check for var 'a': cannot be 0.0
+            return value_entered.isdigit() & (float(value_entered) != 0.0)      # Extra check for var 'a': cannot be 0.0
         else:
-            return str(value_entered).isdigit()  # Was input a digit?
+            return str(value_entered).isdigit()                                 # Was input a digit?
         
     def get_input(self, for_which_var):                                         # for_which_var indicates a, b, or c
         self.most_recent_variable = for_which_var                               # Record variable we're working for
