@@ -8,16 +8,20 @@ class QuadraticHelper:
         self.a = None
         self.b = None
         self.c = None
-        self.pos_x = None
-        self.neg_x = None
+        self.sqComponent = None
+        self.bComponent = None
         self.most_recent_variable = None
         self.imaginary_flag = None
 
     def check_valid(self, value_entered):
+        # [This is After Submitted]: Like Assignment 02, why does strip() not work?
+        value_entered = value_entered.replace('.', '')  # isDigit() cannot handle (.)
+        value_entered = value_entered.replace('-', '')  # isDigit() cannot handle (-) sign
+    
         if self.most_recent_variable == 'a':
-            return str(value_entered).isdigit() & (value_entered != 0.0)        # Extra check for 'a', cannot be 0
+            return value_entered.isdigit() & (float(value_entered) != 0.0)  # Extra check for var 'a': cannot be 0.0
         else:
-            return str(value_entered).isdigit()                                 # Was input a digit?
+            return str(value_entered).isdigit()  # Was input a digit?
         
     def get_input(self, for_which_var):                                         # for_which_var indicates a, b, or c
         self.most_recent_variable = for_which_var                               # Record variable we're working for
@@ -51,14 +55,12 @@ class QuadraticHelper:
         under_sqrt = b**2 - (4*a*c)                                             # Proactive handling negative under root
         denominator = 2*a                                                       # Denominator
         
-        pos_x_numerator = (-b) + math.sqrt(abs(under_sqrt))                     # Numerators (plural!)
-        neg_x_numerator = (-b) - math.sqrt(abs(under_sqrt))
-        
-        self.pos_x = pos_x_numerator / denominator                              # Calculator the positive x value
-        self.neg_x = neg_x_numerator / denominator                              # Calculator the negative x value
-        self.imaginary_flag = under_sqrt < 0.0                                  # Was (b^2 - 4ac) negative?
+        self.bComponent = -b                                                    # Negative of 'b' value user entered
+        self.sqComponent = math.sqrt(abs(under_sqrt)) / denominator             # Sqrt of abs (b^2 - 4ac) / 2*a
+        self.imaginary_flag = under_sqrt < 0.0                                  # Is (b^2 - 4ac) negative?
         
     def print_formatted_answer(self):
+        
         if self.imaginary_flag:                                                 # Append 'i' if flag was triggered
             output_modifier = "i"
         else:
@@ -66,8 +68,9 @@ class QuadraticHelper:
             
         print("\nFor a = {}, b = {}, and c = {}:"
               .format(self.a, self.b, self.c))                                  # Print original numbers entered by user
-        print("+x = {:e}{}".format(self.pos_x, output_modifier))                # Positive x (in scientific notation)
-        print("-x = {:e}{}".format(self.neg_x, output_modifier))                # Negative x (in scientific notation)
+        
+        print("x = {} + {:.4f}{}".format(self.b, self.sqComponent, output_modifier))
+        print("x = {} - {:.4f}{}".format(self.b, self.sqComponent, output_modifier))
         
     
 if __name__ == '__main__':
