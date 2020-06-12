@@ -51,7 +51,7 @@ class QuadraticHelper:
         b = self.b
         c = self.c
 
-        # Intermediate variables
+        # Intermediate variable
         under_sqrt = b**2 - (4*a*c)                                             # Proactive handling negative under root
         
         self.bComponent = -b                                                    # Negative of 'b' value user entered
