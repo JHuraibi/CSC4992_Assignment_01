@@ -53,10 +53,9 @@ class QuadraticHelper:
 
         # Intermediate variables
         under_sqrt = b**2 - (4*a*c)                                             # Proactive handling negative under root
-        denominator = 2*a                                                       # Denominator
         
         self.bComponent = -b                                                    # Negative of 'b' value user entered
-        self.sqComponent = math.sqrt(abs(under_sqrt)) / denominator             # Sqrt of abs (b^2 - 4ac) / 2*a
+        self.sqComponent = math.sqrt(abs(under_sqrt)) / 2*a                     # Sqrt of abs (b^2 - 4ac) / 2*a
         self.imaginary_flag = under_sqrt < 0.0                                  # Is (b^2 - 4ac) negative?
         
     def print_formatted_answer(self):
